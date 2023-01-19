@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: order-service
+server:
+  port: 8081
+
+#SWAGGER
+springdoc:
+  swagger-ui:
+    path: /order-service/swagger-ui.html
+  api-docs:
+    path: /order-service/v3/api-docs/swagger-config
+
+# PRODUCT SERVICE ROOT
+api:
+  catalog:
+    baseurl: http://product-service
+
+#EUREKA
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      initialInstanceInfoReplicationIntervalSeconds: 5
+      registryFetchIntervalSeconds: 5
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 5
+
+#ACTUATOR
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always
+
+
+
+
